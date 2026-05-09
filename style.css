@@ -168,48 +168,51 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 
 /* Personnages */
 .char {
-  position: absolute; bottom: 16%; z-index: 5;
-  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-  transition: all 1.4s cubic-bezier(0.77,0,0.18,1);
+  position: absolute; bottom: 14%; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  opacity: 0;
+  transition: transform 1.4s cubic-bezier(0.77,0,0.18,1);
 }
 .char-louison {
-  left: 2%;
-  opacity: 0;
-  animation: charAppearLeft 0.6s ease 1.2s forwards;
+  left: 3%;
+  animation: charAppear 0.7s ease 1.2s forwards;
 }
 .char-moliere {
-  right: 2%;
-  opacity: 0;
-  animation: charAppearRight 0.6s ease 1.2s forwards;
+  right: 3%;
+  animation: charAppear 0.7s ease 1.2s forwards;
 }
-@keyframes charAppearLeft  { to { opacity: 1; } }
-@keyframes charAppearRight { to { opacity: 1; } }
+@keyframes charAppear { to { opacity: 1; } }
 
-.char-body { font-size: clamp(3rem, 7vw, 5.5rem); filter: drop-shadow(0 0 20px rgba(201,168,76,0.4)); }
-
-.char-rope {
-  width: 3px;
-  background: linear-gradient(to bottom, var(--gold-dark), var(--gold));
-  border-radius: 2px;
-  height: 0;
-  transition: height 0.5s ease;
+.char-svg {
+  width: clamp(80px, 12vw, 150px);
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.7)) drop-shadow(0 0 20px rgba(201,168,76,0.2));
 }
-.char-louison .char-rope { order: -1; }
 
 .char-label {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
   color: var(--gold);
   opacity: 0.7;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
-/* Pulling animation */
-.char-louison.pulling { animation: pullLeft 0.4s ease infinite alternate; }
-.char-moliere.pulling { animation: pullRight 0.4s ease infinite alternate; }
-@keyframes pullLeft  { from { transform: translateX(0) rotate(0deg); } to { transform: translateX(-12px) rotate(-6deg); } }
-@keyframes pullRight { from { transform: translateX(0) rotate(0deg); } to { transform: translateX(12px) rotate(6deg); } }
+/* Pulling animation — ils se penchent en arrière */
+.char-louison.pulling {
+  animation: pullLeft 0.5s ease-in-out infinite alternate;
+}
+.char-moliere.pulling {
+  animation: pullRight 0.5s ease-in-out infinite alternate;
+}
+@keyframes pullLeft {
+  from { transform: translateX(0) rotate(0deg); }
+  to   { transform: translateX(-18px) rotate(-8deg); }
+}
+@keyframes pullRight {
+  from { transform: translateX(0) rotate(0deg); }
+  to   { transform: translateX(18px) rotate(8deg); }
+}
 
 /* ===== NAVBAR ===== */
 .nav {

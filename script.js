@@ -1,41 +1,36 @@
 // ===== LOADER =====
 window.addEventListener('load', () => {
-  const loader   = document.getElementById('loader');
-  const louison  = document.getElementById('charLouison');
-  const moliere  = document.getElementById('charMoliere');
-  const ropeL    = louison.querySelector('.char-rope');
-  const ropeM    = moliere.querySelector('.char-rope');
+  const loader  = document.getElementById('loader');
+  const louison = document.getElementById('charLouison');
+  const moliere = document.getElementById('charMoliere');
 
-  // 1. Ropes grow down from top (characters grab the curtain ropes)
-  setTimeout(() => {
-    ropeL.style.height = '80px';
-    ropeM.style.height = '80px';
-  }, 1800);
+  // 1. Personnages apparaissent (géré en CSS à 1.2s)
 
-  // 2. Characters start pulling
+  // 2. Ils commencent à tirer
   setTimeout(() => {
     louison.classList.add('pulling');
     moliere.classList.add('pulling');
-  }, 2400);
+  }, 2200);
 
-  // 3. Curtains open
+  // 3. Les rideaux s'ouvrent
   setTimeout(() => {
     loader.classList.add('open');
-  }, 2900);
+  }, 2800);
 
-  // 4. Characters slide out with curtains, loader hides
+  // 4. Fade out du loader
   setTimeout(() => {
-    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.transition = 'opacity 0.6s ease';
     loader.style.opacity = '0';
     loader.style.pointerEvents = 'none';
-  }, 4100);
+  }, 4000);
 
+  // 5. On retire le loader et on révèle le hero
   setTimeout(() => {
     loader.style.display = 'none';
     document.querySelectorAll('.hero .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 150);
     });
-  }, 4600);
+  }, 4700);
 });
 
 // ===== CUSTOM CURSOR =====
