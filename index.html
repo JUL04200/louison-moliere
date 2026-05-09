@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louison & Monsieur Molière — Groupe Duras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-curtain loader-curtain--left"></div>
+    <div class="loader-curtain loader-curtain--right"></div>
+    <div class="loader-text">
+      <div class="loader-line1">Louison &amp; Monsieur Molière</div>
+      <div class="loader-line2">6ème · Groupe Duras</div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="nav-logo-icon">🎭</span>
+      <span>Louison & Molière</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link">Accueil</a></li>
+      <li><a href="#resume" class="nav-link">Histoire</a></li>
+      <li><a href="#personnages" class="nav-link">Personnages</a></li>
+      <li><a href="#epoque" class="nav-link">Époque</a></li>
+      <li><a href="#themes" class="nav-link">Thèmes</a></li>
+    </ul>
+    <div class="nav-badge">Groupe Duras · Mme Assouline</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-bg-text">THÉÂTRE</div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <span class="dot"></span> Roman de Marie-Christine Helgerson
+      </div>
+      <h1 class="hero-title reveal">
+        <em>Louison</em>
+        <span class="hero-amp">&</span>
+        <em>Monsieur</em><br>
+        <strong class="hero-moliere">Molière</strong>
+      </h1>
+      <p class="hero-sub reveal">Paris, 1670 — Une enfant de comédiens, un génie du théâtre,<br>et la magie du Palais-Royal.</p>
+      <div class="hero-cta reveal">
+        <a href="#resume" class="btn-primary">Découvrir l'histoire</a>
+        <a href="#personnages" class="btn-ghost">Les personnages →</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-quote">
+      <blockquote>"Le théâtre est une école où la vertu n'est jamais assez récompensée."</blockquote>
+      <cite>— Molière</cite>
+    </div>
+  </section>
+
+  <!-- RÉSUMÉ -->
+  <section class="resume-section" id="resume">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">L'Histoire</span>
+        <h2 class="section-title">Résumé du livre</h2>
+      </div>
+
+      <div class="resume-layout">
+        <div class="resume-book-wrap reveal">
+          <div class="book-3d">
+            <div class="book-spine"></div>
+            <div class="book-cover">
+              <div class="book-cover-inner">
+                <div class="book-ornament">✦</div>
+                <p class="book-title-text">Louison<br><span>&</span><br>Monsieur<br>Molière</p>
+                <div class="book-ornament">✦</div>
+                <p class="book-author-text">Marie-Christine<br>Helgerson</p>
+              </div>
+            </div>
+          </div>
+          <div class="book-info-badges">
+            <span class="badge">Roman historique</span>
+            <span class="badge">6e — CM2</span>
+            <span class="badge">Flammarion Jeunesse</span>
+          </div>
+        </div>
+
+        <div class="resume-text-wrap">
+          <div class="resume-chapter reveal">
+            <div class="chapter-num">01</div>
+            <div class="chapter-content">
+              <h3>De Lyon à Paris</h3>
+              <p>Louison a <strong>dix ans</strong>. Toute sa famille quitte <strong>Lyon</strong> pour Paris : le roi <strong>Louis XIV</strong> a demandé à ses parents, comédiens, de rejoindre la troupe du <strong>Palais-Royal</strong> pour jouer avec Molière. Louison rêve de devenir actrice, mais sa mère est très dure avec elle.</p>
+            </div>
+          </div>
+          <div class="resume-chapter reveal">
+            <div class="chapter-num">02</div>
+            <div class="chapter-content">
+              <h3>Apprendre malgré tout</h3>
+              <p>La petite apprend à lire et à écrire chez les <strong>Ursulines</strong>, mais elle se fait renvoyer car les religieuses n'acceptent pas les filles de comédiens. Elle continue seule : elle mémorise des textes de théâtre et entraîne sa voix sans relâche. Sa gouvernante <strong>Frosine</strong> est toujours là pour l'encourager.</p>
+            </div>
+          </div>
+          <div class="resume-chapter reveal">
+            <div class="chapter-num">03</div>
+            <div class="chapter-content">
+              <h3>Le Malade Imaginaire</h3>
+              <p><strong>Molière</strong>, qui vient souvent dîner chez eux, remarque le talent de Louison et lui donne le rôle de la <strong>fille cadette d'Argan</strong> dans sa nouvelle pièce. Louison doit faire semblant d'être morte sur scène, face à Molière lui-même. Le soir de la première, le public croit vraiment qu'elle est morte — c'est un <strong>triomphe</strong>.</p>
+            </div>
+          </div>
+          <div class="resume-chapter reveal">
+            <div class="chapter-num">04</div>
+            <div class="chapter-content">
+              <h3>Après Molière</h3>
+              <p>Molière s'effondre lors d'une représentation suivante et <strong>meurt</strong> peu après. La nouvelle directrice, très dure, garde les parents de Louison mais renvoie Louison, trop jeune. Elle se marie à <strong>19 ans</strong> avec Jacques, un perruquier — mais elle continue d'aller au théâtre chaque semaine, car sa passion ne l'a jamais quittée.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONNAGES -->
+  <section class="perso-section" id="personnages">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">La Troupe</span>
+        <h2 class="section-title">Les Personnages</h2>
+        <p class="section-desc">Cliquez sur une carte pour en savoir plus</p>
+      </div>
+
+      <div class="perso-grid">
+
+        <!-- LOUISON -->
+        <div class="perso-card perso-card--star reveal" data-name="louison">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">🎭</div>
+              <div class="perso-badge perso-badge--gold">Héroïne</div>
+              <h3>Louison</h3>
+              <p class="perso-role">La petite comédienne</p>
+              <div class="perso-tags">
+                <span>Déterminée</span><span>Passionnée</span><span>10 ans</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">🎭</div>
+              <h3>Louison</h3>
+              <p>Petite fille de <strong>dix ans</strong>, fille de comédiens. Elle rêve de devenir actrice mais sa mère lui dit souvent qu'elle est laide. Malgré le rejet des Ursulines, elle travaille seule, mémorise des textes et entraîne sa voix. Son talent est reconnu par <strong>Molière lui-même</strong>.</p>
+              <div class="perso-quote">"Le soir de la première, toute la salle crut qu'elle était vraiment morte."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOLIÈRE -->
+        <div class="perso-card perso-card--star reveal" data-name="moliere">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">✍️</div>
+              <div class="perso-badge perso-badge--gold">Génie</div>
+              <h3>Monsieur Molière</h3>
+              <p class="perso-role">Auteur & Directeur</p>
+              <div class="perso-tags">
+                <span>Exigeant</span><span>Malade</span><span>Génie</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">✍️</div>
+              <h3>Jean-Baptiste Poquelin</h3>
+              <p><strong>Jean-Baptiste Poquelin</strong>, dit Molière. Il vient souvent dîner chez les parents de Louison. Déjà très malade — il tousse beaucoup et s'affaiblit — il continue pourtant à travailler sans arrêt. Il joue lui-même le rôle d'<strong>Argan</strong> dans Le Malade Imaginaire et s'effondre lors d'une représentation.</p>
+              <div class="perso-quote">"Il mourut sur scène, comme il avait vécu."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LA MÈRE -->
+        <div class="perso-card reveal" data-name="mere">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">🌷</div>
+              <h3>La Mère de Louison</h3>
+              <p class="perso-role">Comédienne, mère dure</p>
+              <div class="perso-tags">
+                <span>Sévère</span><span>Distante</span><span>Comédienne</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">🌷</div>
+              <h3>La Mère</h3>
+              <p>Comédienne de la troupe du Palais-Royal, elle est <strong>très dure avec Louison</strong> et lui dit souvent qu'elle est laide. Elle est froide et distante avec sa fille. Mais quand elle voit Louison triompher sur scène dans <strong>Le Malade Imaginaire</strong>, elle se montre pour la première fois douce et attentionnée.</p>
+              <div class="perso-quote">"Certaines mères n'expriment leur amour qu'en voyant leur enfant briller."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FROSINE -->
+        <div class="perso-card reveal" data-name="frosine">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">🌻</div>
+              <h3>Frosine</h3>
+              <p class="perso-role">La gouvernante</p>
+              <div class="perso-tags">
+                <span>Bienveillante</span><span>Douce</span><span>Fidèle</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">🌻</div>
+              <h3>Frosine</h3>
+              <p>La gouvernante de Louison. Alors que la mère est froide et sévère, <strong>Frosine</strong> est toujours là pour consoler et encourager la petite fille. C'est elle qui lui donne la force de continuer à travailler malgré les humiliations et les rejets. Elle est la <strong>vraie figure maternelle</strong> du roman.</p>
+              <div class="perso-quote">"Sans Frosine, Louison n'aurait peut-être jamais osé rêver."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MADELEINE BÉJART -->
+        <div class="perso-card reveal" data-name="madeleine">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">🕯️</div>
+              <h3>Madeleine Béjart</h3>
+              <p class="perso-role">La meilleure comédienne</p>
+              <div class="perso-tags">
+                <span>Talentueuse</span><span>Fidèle</span><span>Disparue</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">🕯️</div>
+              <h3>Madeleine Béjart</h3>
+              <p>Sœur de la femme de Molière, Armande. Elle est la <strong>fidèle amie</strong> de Molière, qu'il considère comme la meilleure comédienne de sa troupe. Elle meurt <strong>un an avant Molière</strong>, ce qui le plonge dans une profonde tristesse. Sa mort annonce la fin qui approche.</p>
+              <div class="perso-quote">"Sa mort brisa quelque chose en Molière qu'aucune pièce ne pouvait réparer."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARMANDE BÉJART -->
+        <div class="perso-card reveal" data-name="armande">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">👑</div>
+              <h3>Armande Béjart</h3>
+              <p class="perso-role">La femme de Molière</p>
+              <div class="perso-tags">
+                <span>Actrice</span><span>Épouse</span><span>Sœur de Madeleine</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">👑</div>
+              <h3>Armande Béjart</h3>
+              <p>Femme de Molière et <strong>sœur de Madeleine Béjart</strong>. Elle est comédienne dans la troupe du Palais-Royal. Son rôle dans le roman est lié à celui de Madeleine, dont la mort affecte profondément Molière — et donc toute la troupe autour d'elle.</p>
+              <div class="perso-quote">"Dans l'ombre de son mari, elle portait aussi la scène."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOUIS XIV -->
+        <div class="perso-card perso-card--roi reveal" data-name="roi">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">☀️</div>
+              <div class="perso-badge perso-badge--silver">Majesté</div>
+              <h3>Louis XIV</h3>
+              <p class="perso-role">Le Roi-Soleil</p>
+              <div class="perso-tags">
+                <span>Puissant</span><span>Mécène</span><span>Roi absolu</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">☀️</div>
+              <h3>Louis XIV</h3>
+              <p>C'est le <strong>Roi-Soleil</strong> qui est à l'origine de toute l'histoire : il demande personnellement aux parents de Louison de quitter Lyon pour rejoindre la troupe du Palais-Royal. Sans lui, Louison n'aurait jamais rencontré Molière. Il représente le <strong>pouvoir absolu</strong> qui décide des destinées.</p>
+              <div class="perso-quote">"Un mot du Roi suffit à changer une vie."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOUVELLE DIRECTRICE -->
+        <div class="perso-card reveal" data-name="directrice">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">🪬</div>
+              <h3>La Nouvelle Directrice</h3>
+              <p class="perso-role">Après la mort de Molière</p>
+              <div class="perso-tags">
+                <span>Dure</span><span>Froide</span><span>Sans pitié</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">🪬</div>
+              <h3>La Nouvelle Directrice</h3>
+              <p>Après la mort de Molière, une <strong>nouvelle directrice très dure</strong> prend la tête de la troupe. Elle garde les parents de Louison, mais renvoie Louison elle-même, jugée <strong>trop jeune</strong>. Elle représente la cruauté du monde du spectacle, qui peut briser les rêves sans la moindre pitié.</p>
+              <div class="perso-quote">"Le théâtre ne fait pas de sentiments."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JACQUES -->
+        <div class="perso-card reveal" data-name="jacques">
+          <div class="perso-card-inner">
+            <div class="perso-card-front">
+              <div class="perso-emoji">💍</div>
+              <h3>Jacques</h3>
+              <p class="perso-role">Le mari de Louison</p>
+              <div class="perso-tags">
+                <span>Perruquier</span><span>Ordinaire</span><span>Mari</span>
+              </div>
+              <div class="perso-hint">Cliquer pour en savoir plus ↓</div>
+            </div>
+            <div class="perso-card-back">
+              <div class="perso-emoji-sm">💍</div>
+              <h3>Jacques</h3>
+              <p>Louison se marie à <strong>19 ans</strong> avec Jacques, un <strong>perruquier</strong> qui tient une boutique qu'elle trouve sale et peu reluisante. Ce mariage contraste fortement avec le monde brillant du théâtre qu'elle a connu. Pourtant, elle insiste pour aller au théâtre <strong>au moins une fois par semaine</strong> — sa passion ne l'a jamais quittée.</p>
+              <div class="perso-quote">"On peut marier Louison, mais pas tuer sa passion pour la scène."</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉPOQUE / FRISE -->
+  <section class="epoque-section" id="epoque">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Le Contexte</span>
+        <h2 class="section-title">Paris au XVII<sup>e</sup> siècle</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-dot">1622</div>
+          <div class="timeline-card">
+            <div class="tl-icon">👶</div>
+            <h3>Naissance de Molière</h3>
+            <p>Jean-Baptiste Poquelin naît à Paris. Il deviendra le plus grand auteur comique de la langue française.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-side="right">
+          <div class="timeline-dot">1643</div>
+          <div class="timeline-card">
+            <div class="tl-icon">🎭</div>
+            <h3>L'Illustre Théâtre</h3>
+            <p>Molière fonde sa première troupe avec les Béjart, dont Madeleine, sa plus fidèle compagne de scène.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-dot">1661</div>
+          <div class="timeline-card">
+            <div class="tl-icon">☀️</div>
+            <h3>Louis XIV, Roi absolu</h3>
+            <p>À 23 ans, Louis XIV prend seul le pouvoir. C'est lui qui appellera les parents de Louison à Paris pour rejoindre la troupe du Palais-Royal.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-side="right">
+          <div class="timeline-dot">1670</div>
+          <div class="timeline-card tl-highlight">
+            <div class="tl-icon">⭐</div>
+            <h3>Le Roman se passe ici</h3>
+            <p>La famille de Louison arrive de Lyon à Paris. Molière remarque le talent de Louison et lui confie un rôle dans Le Malade Imaginaire.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-dot">1672</div>
+          <div class="timeline-card">
+            <div class="tl-icon">🕯️</div>
+            <h3>Mort de Madeleine Béjart</h3>
+            <p>Madeleine, fidèle amie et meilleure comédienne de Molière selon lui, meurt un an avant le maître. Il en est profondément attristé.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-side="right">
+          <div class="timeline-dot">1673</div>
+          <div class="timeline-card">
+            <div class="tl-icon">🖤</div>
+            <h3>La mort de Molière</h3>
+            <p>Déjà très affaibli, Molière s'effondre lors d'une représentation du Malade Imaginaire et meurt peu après. Louison est renvoyée par la nouvelle directrice.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THÈMES -->
+  <section class="themes-section" id="themes">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Analyse</span>
+        <h2 class="section-title">Les Grands Thèmes</h2>
+      </div>
+      <div class="themes-grid">
+        <div class="theme-card reveal">
+          <div class="theme-number">I</div>
+          <div class="theme-icon">🌟</div>
+          <h3>Le rêve face aux obstacles</h3>
+          <p>Louison est rejetée par les Ursulines, rabaissée par sa mère, renvoyée par la directrice — mais elle ne renonce jamais. Le roman montre qu'on peut <strong>surmonter les obstacles</strong> grâce à la passion et au travail.</p>
+        </div>
+        <div class="theme-card reveal">
+          <div class="theme-number">II</div>
+          <div class="theme-icon">🎭</div>
+          <h3>L'art comme liberté</h3>
+          <p>Le théâtre est pour Louison bien plus qu'un métier : c'est une <strong>façon d'exister</strong>. Même adulte et mariée à un perruquier, elle continue d'y aller chaque semaine. L'art ne s'éteint pas.</p>
+        </div>
+        <div class="theme-card reveal">
+          <div class="theme-number">III</div>
+          <div class="theme-icon">⏳</div>
+          <h3>La mort & la création</h3>
+          <p>Molière crée <em>Le Malade Imaginaire</em> alors qu'il est lui-même mourant. Il joue Argan — un homme qui se croit malade — <strong>en étant vraiment malade</strong>. C'est une mise en abyme tragique et bouleversante.</p>
+        </div>
+        <div class="theme-card reveal">
+          <div class="theme-number">IV</div>
+          <div class="theme-icon">💛</div>
+          <h3>La figure maternelle</h3>
+          <p>Le roman oppose deux figures : la <strong>mère biologique</strong>, froide et blessante, et <strong>Frosine</strong>, gouvernante aimante. C'est aussi le récit d'une enfant qui cherche à être aimée et reconnue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS PERSO -->
+  <section class="avis-section">
+    <div class="container">
+      <div class="avis-card reveal">
+        <div class="avis-stars">★★★★★</div>
+        <h2>Mon avis sur le livre</h2>
+        <p>J'ai beaucoup aimé ce livre parce qu'il mêle <strong>l'histoire vraie</strong> de Molière et une histoire inventée mais très réaliste. On apprend plein de choses sur la vie au XVII<sup>e</sup> siècle tout en vivant une aventure passionnante aux côtés de Louison. Le personnage de Louison est attachant parce qu'elle est courageuse malgré tout ce qu'elle subit. La scène où elle fait semblant d'être morte sur scène et où toute la salle applaudit est très émouvante. Et la fin est triste mais belle : même après tout, Louison garde sa passion pour le théâtre. C'est un livre qui donne envie de ne jamais abandonner ses rêves.</p>
+        <div class="avis-signature">— Groupe <strong>Duras</strong> · Mme Assouline</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">🎭</div>
+      <h3>Louison & Monsieur Molière</h3>
+      <p><em>Marie-Christine Helgerson</em> — Flammarion Jeunesse</p>
+      <div class="footer-divider">— Rideau —</div>
+      <p class="footer-small">Présenté par le Groupe Duras · Classe de 6e · Mme Assouline</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+// ===== LOADER =====
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+
+  // Open curtains after text appears
+  setTimeout(() => {
+    loader.classList.add('open');
+    setTimeout(() => {
+      loader.style.display = 'none';
+      // Trigger hero reveals
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 150);
+      });
+    }, 1400);
+  }, 1400);
+});
+
+// ===== CUSTOM CURSOR =====
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursor-follower');
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+function animateFollower() {
+  followerX += (mouseX - followerX) * 0.12;
+  followerY += (mouseY - followerY) * 0.12;
+  follower.style.left = followerX + 'px';
+  follower.style.top = followerY + 'px';
+  requestAnimationFrame(animateFollower);
+}
+animateFollower();
+
+// Cursor effects on interactive elements
+document.querySelectorAll('a, .perso-card, .theme-card, .resume-chapter').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+    cursor.style.background = 'var(--gold-light)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursor.style.background = 'var(--gold)';
+  });
+});
+
+// ===== NAVBAR SCROLL =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger effect for grid items
+      const delay = entry.target.closest('.perso-grid, .themes-grid, .timeline')
+        ? Array.from(entry.target.parentElement?.children || []).indexOf(entry.target) * 80
+        : 0;
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  if (!el.closest('.hero')) revealObserver.observe(el);
+});
+
+// ===== CARD FLIP =====
+document.querySelectorAll('.perso-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+});
+
+// ===== PARTICLES CANVAS =====
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const PARTICLE_COUNT = 120;
+const particles = [];
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(initial = false) {
+    this.x = Math.random() * canvas.width;
+    this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
+    this.size = Math.random() * 1.5 + 0.3;
+    this.speedY = -(Math.random() * 0.4 + 0.1);
+    this.speedX = (Math.random() - 0.5) * 0.2;
+    this.opacity = Math.random() * 0.6 + 0.1;
+    this.fadeSpeed = Math.random() * 0.003 + 0.001;
+    this.growing = true;
+    this.maxOpacity = this.opacity;
+    // Randomly gold or white
+    this.gold = Math.random() < 0.3;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.growing) {
+      this.opacity += this.fadeSpeed;
+      if (this.opacity >= this.maxOpacity) this.growing = false;
+    } else {
+      this.opacity -= this.fadeSpeed * 0.5;
+    }
+    if (this.y < -10 || this.opacity <= 0) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, this.opacity);
+    ctx.fillStyle = this.gold ? '#c9a84c' : '#ffffff';
+    ctx.shadowBlur = this.gold ? 6 : 3;
+    ctx.shadowColor = this.gold ? '#c9a84c' : '#ffffff';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+let mouseInfluenceX = 0, mouseInfluenceY = 0;
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  mouseInfluenceX = (e.clientX - rect.left - canvas.width / 2) / canvas.width;
+  mouseInfluenceY = (e.clientY - rect.top - canvas.height / 2) / canvas.height;
+});
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    // Subtle mouse influence
+    p.x += mouseInfluenceX * 0.3;
+    p.y += mouseInfluenceY * 0.1;
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// ===== HERO PARALLAX =====
+const heroBgText = document.querySelector('.hero-bg-text');
+const heroContent = document.querySelector('.hero-content');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  if (heroBgText) heroBgText.style.transform = `translateY(${scrolled * 0.4}px)`;
+  if (heroContent) heroContent.style.transform = `translateY(${scrolled * 0.25}px)`;
+});
+
+// ===== SMOOTH NAV LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ===== ACTIVE NAV LINK =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === `#${id}`) {
+          link.style.color = 'var(--gold)';
+        }
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => sectionObserver.observe(s));
+
+// ===== BOOK 3D MOUSE TILT =====
+const book = document.querySelector('.book-3d');
+if (book) {
+  book.addEventListener('mousemove', e => {
+    const rect = book.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const rx = (e.clientY - cy) / 15;
+    const ry = (cx - e.clientX) / 15;
+    book.style.transform = `rotateX(${rx}deg) rotateY(${ry - 10}deg) scale(1.05)`;
+  });
+  book.addEventListener('mouseleave', () => {
+    book.style.transform = 'rotateY(-20deg) rotateX(5deg)';
+  });
+}
+
+// ===== TYPING EFFECT on hero subtitle =====
+const heroSub = document.querySelector('.hero-sub');
+if (heroSub) {
+  const text = heroSub.textContent;
+  heroSub.textContent = '';
+  heroSub.style.opacity = '1';
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      heroSub.innerHTML = text.substring(0, i + 1).replace('\n', '<br>');
+      i++;
+      setTimeout(type, 25);
+    }
+  };
+  // Start typing after loader
+  setTimeout(type, 2200);
+}
+
+// ===== COUNTER ANIMATION (timeline dots) =====
+const timelineDots = document.querySelectorAll('.timeline-dot');
+const dotObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'none';
+      entry.target.style.boxShadow = '0 0 30px rgba(201,168,76,0.6)';
+      setTimeout(() => {
+        entry.target.style.boxShadow = '0 0 20px rgba(201,168,76,0.3)';
+      }, 600);
+    }
+  });
+}, { threshold: 0.5 });
+timelineDots.forEach(dot => dotObserver.observe(dot));
+
+console.log('%c🎭 Louison & Monsieur Molière', 'font-size:20px; color:#c9a84c; font-family:Georgia,serif;');
+console.log('%cGroupe Duras · Mme Assouline · 6e', 'font-size:12px; color:#888;');
