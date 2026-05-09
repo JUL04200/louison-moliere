@@ -261,6 +261,15 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 }
 .nav-link:hover { color: var(--gold); }
 .nav-link:hover::after { left: 1rem; right: 1rem; }
+.nav-credit {
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  opacity: 0.7;
+  white-space: nowrap;
+}
 .nav-badge {
   font-size: 0.72rem;
   color: var(--gold-dark);
