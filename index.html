@@ -12,11 +12,44 @@
 
   <!-- LOADER -->
   <div class="loader" id="loader">
-    <div class="loader-curtain loader-curtain--left"></div>
-    <div class="loader-curtain loader-curtain--right"></div>
-    <div class="loader-text">
+    <!-- Fond de scène -->
+    <div class="stage-bg">
+      <div class="stage-lights">
+        <div class="stage-light-beam beam-1"></div>
+        <div class="stage-light-beam beam-2"></div>
+        <div class="stage-light-beam beam-3"></div>
+      </div>
+      <div class="stage-floor-loader"></div>
+    </div>
+
+    <!-- Rideaux -->
+    <div class="curtain-left" id="curtainLeft">
+      <div class="curtain-fold"></div>
+      <div class="curtain-fold"></div>
+      <div class="curtain-fold"></div>
+    </div>
+    <div class="curtain-right" id="curtainRight">
+      <div class="curtain-fold"></div>
+      <div class="curtain-fold"></div>
+      <div class="curtain-fold"></div>
+    </div>
+
+    <!-- Titre affiché sur les rideaux fermés -->
+    <div class="curtain-title" id="curtainTitle">
       <div class="loader-line1">Louison &amp; Monsieur Molière</div>
       <div class="loader-line2">6ème · Groupe Duras</div>
+    </div>
+
+    <!-- Personnages -->
+    <div class="char char-louison" id="charLouison">
+      <div class="char-body">👧</div>
+      <div class="char-rope"></div>
+      <div class="char-label">Louison</div>
+    </div>
+    <div class="char char-moliere" id="charMoliere">
+      <div class="char-rope"></div>
+      <div class="char-body">🧑‍🦱</div>
+      <div class="char-label">M. Molière</div>
     </div>
   </div>
 

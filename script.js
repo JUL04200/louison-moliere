@@ -1,18 +1,41 @@
 // ===== LOADER =====
 window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
+  const loader   = document.getElementById('loader');
+  const louison  = document.getElementById('charLouison');
+  const moliere  = document.getElementById('charMoliere');
+  const ropeL    = louison.querySelector('.char-rope');
+  const ropeM    = moliere.querySelector('.char-rope');
 
-  // Open curtains after text appears
+  // 1. Ropes grow down from top (characters grab the curtain ropes)
+  setTimeout(() => {
+    ropeL.style.height = '80px';
+    ropeM.style.height = '80px';
+  }, 1800);
+
+  // 2. Characters start pulling
+  setTimeout(() => {
+    louison.classList.add('pulling');
+    moliere.classList.add('pulling');
+  }, 2400);
+
+  // 3. Curtains open
   setTimeout(() => {
     loader.classList.add('open');
-    setTimeout(() => {
-      loader.style.display = 'none';
-      // Trigger hero reveals
-      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 150);
-      });
-    }, 1400);
-  }, 1400);
+  }, 2900);
+
+  // 4. Characters slide out with curtains, loader hides
+  setTimeout(() => {
+    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+  }, 4100);
+
+  setTimeout(() => {
+    loader.style.display = 'none';
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 150);
+    });
+  }, 4600);
 });
 
 // ===== CUSTOM CURSOR =====
