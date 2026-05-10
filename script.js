@@ -51,38 +51,6 @@ window.addEventListener('load', () => {
   }, 7000);
 });
 
-// ===== CUSTOM CURSOR =====
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursor-follower');
-let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
-});
-
-function animateFollower() {
-  followerX += (mouseX - followerX) * 0.12;
-  followerY += (mouseY - followerY) * 0.12;
-  follower.style.left = followerX + 'px';
-  follower.style.top = followerY + 'px';
-  requestAnimationFrame(animateFollower);
-}
-animateFollower();
-
-// Cursor effects on interactive elements
-document.querySelectorAll('a, .perso-card, .theme-card, .resume-chapter').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-    cursor.style.background = 'var(--gold-light)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-    cursor.style.background = 'var(--gold)';
-  });
-});
 
 // ===== NAVBAR SCROLL =====
 const nav = document.getElementById('nav');
