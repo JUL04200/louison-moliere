@@ -696,11 +696,20 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
 }
 .perso-hint {
-  font-size: 0.7rem;
-  color: var(--gold);
-  opacity: 0.5;
+  font-size: 0.75rem;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
   margin-top: 0.8rem;
   letter-spacing: 0.05em;
+  font-weight: 600;
+  display: inline-block;
+  animation: hintPulse 1.8s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.96); }
 }
 
 .perso-card-back h3 {
