@@ -5,17 +5,19 @@
   --gold: #c9a84c;
   --gold-light: #f0d080;
   --gold-dark: #8a6a1e;
-  --dark: #0a0a0f;
-  --dark2: #111118;
-  --dark3: #1a1a28;
-  --dark4: #22223a;
+  --dark: #0a0605;
+  --dark2: #120908;
+  --dark3: #1e0f0d;
+  --dark4: #2a1614;
   --light: #f0ece0;
   --light2: #d4c9a8;
-  --accent: #7c3aed;
-  --accent2: #a855f7;
-  --red: #c0392b;
+  --accent: #b91c1c;
+  --accent2: #ef4444;
+  --red: #8b0000;
+  --crimson: #dc143c;
+  --burgundy: #6b0f1a;
   --glass: rgba(255,255,255,0.04);
-  --glass-border: rgba(201,168,76,0.2);
+  --glass-border: rgba(201,168,76,0.25);
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Cinzel', serif;
@@ -72,7 +74,7 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 /* Fond de scène */
 .stage-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, #1a0830 0%, #07050f 70%);
+  background: radial-gradient(ellipse at 50% 40%, #3d0808 0%, #0a0403 70%);
 }
 .stage-lights { position: absolute; inset: 0; }
 .stage-light-beam {
@@ -214,6 +216,45 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
   to   { transform: translateX(18px) rotate(8deg); }
 }
 
+/* Message de bienvenue */
+.welcome-msg {
+  position: absolute; inset: 0; z-index: 6;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+.welcome-msg.visible { opacity: 1; }
+.welcome-inner {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  background: rgba(10,4,3,0.75);
+  border: 1px solid var(--glass-border);
+  padding: 2.5rem 4rem;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 80px rgba(0,0,0,0.8), inset 0 0 40px rgba(180,50,20,0.05);
+}
+.welcome-deco { color: var(--gold); font-size: 1.2rem; opacity: 0.6; }
+.welcome-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--light);
+  letter-spacing: 0.06em;
+  min-height: 2.5rem;
+  text-shadow: 0 0 30px rgba(201,168,76,0.3);
+}
+.welcome-cursor {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: var(--gold);
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blinkCursor 0.7s step-end infinite;
+}
+@keyframes blinkCursor { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
 /* ===== NAVBAR ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -288,7 +329,7 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
   align-items: center; justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at 30% 50%, #1a0a2e 0%, var(--dark) 70%);
+  background: radial-gradient(ellipse at 30% 50%, #2d0a08 0%, var(--dark) 70%);
 }
 
 #particles-canvas {
@@ -490,7 +531,7 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 
 .book-cover {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, #2a1a4e, #1a0a2e);
+  background: linear-gradient(135deg, #3d1010, #2d0a08);
   border-radius: 4px 8px 8px 4px;
   border: 1px solid var(--gold-dark);
   display: flex; align-items: center; justify-content: center;
@@ -498,7 +539,7 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 }
 .book-spine {
   position: absolute; left: -20px; top: 0; bottom: 0; width: 20px;
-  background: linear-gradient(to right, #0d0820, #2a1a4e);
+  background: linear-gradient(to right, #1a0605, #3d1010);
   border-radius: 4px 0 0 4px;
   border: 1px solid var(--gold-dark);
   border-right: none;
@@ -622,14 +663,14 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 }
 .perso-card-back {
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, #1a0a2e, var(--dark3));
+  background: linear-gradient(135deg, #2d0a08, var(--dark3));
   justify-content: center;
 }
 
 .perso-card--star .perso-card-front,
 .perso-card--star .perso-card-back {
   border-color: rgba(201,168,76,0.35);
-  background: linear-gradient(135deg, #1a1030, #0d0820);
+  background: linear-gradient(135deg, #220c0c, #1a0605);
 }
 .perso-card--star .perso-card-front::before {
   background: radial-gradient(circle at 30% 20%, rgba(201,168,76,0.12), transparent 70%);
@@ -822,7 +863,7 @@ body:has(.perso-card:hover) .cursor-follower { transform: translate(-50%,-50%) s
 .avis-section { padding: 6rem 0; background: var(--dark2); }
 .avis-card {
   max-width: 800px; margin: 0 auto;
-  background: linear-gradient(135deg, #1a0a2e, #0d0820);
+  background: linear-gradient(135deg, #2d0a08, #1a0605);
   border: 1px solid rgba(201,168,76,0.3);
   border-radius: 24px;
   padding: 3.5rem;

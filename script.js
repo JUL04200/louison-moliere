@@ -1,36 +1,54 @@
 // ===== LOADER =====
 window.addEventListener('load', () => {
-  const loader  = document.getElementById('loader');
-  const louison = document.getElementById('charLouison');
-  const moliere = document.getElementById('charMoliere');
+  const loader     = document.getElementById('loader');
+  const louison    = document.getElementById('charLouison');
+  const moliere    = document.getElementById('charMoliere');
+  const welcomeMsg = document.getElementById('welcomeMsg');
+  const welcomeTxt = document.getElementById('welcomeText');
 
-  // 1. Personnages apparaissent (géré en CSS à 1.2s)
+  const bienvenue = "Bienvenue à vous, Mme Assouline…";
 
-  // 2. Ils commencent à tirer
+  // 1. Personnages apparaissent (CSS à 1.2s)
+
+  // 2. Ils tirent
   setTimeout(() => {
     louison.classList.add('pulling');
     moliere.classList.add('pulling');
   }, 2200);
 
-  // 3. Les rideaux s'ouvrent
+  // 3. Rideaux s'ouvrent
   setTimeout(() => {
     loader.classList.add('open');
   }, 2800);
 
-  // 4. Fade out du loader
+  // 4. Message de bienvenue avec effet machine à écrire
   setTimeout(() => {
-    loader.style.transition = 'opacity 0.6s ease';
-    loader.style.opacity = '0';
-    loader.style.pointerEvents = 'none';
+    welcomeMsg.classList.add('visible');
+    let i = 0;
+    welcomeTxt.innerHTML = '<span class="welcome-cursor"></span>';
+    const cursor = welcomeTxt.querySelector('.welcome-cursor');
+    const iv = setInterval(() => {
+      welcomeTxt.textContent = bienvenue.substring(0, i + 1);
+      welcomeTxt.appendChild(cursor);
+      i++;
+      if (i >= bienvenue.length) clearInterval(iv);
+    }, 60);
   }, 4000);
 
-  // 5. On retire le loader et on révèle le hero
+  // 5. Fade out
+  setTimeout(() => {
+    loader.style.transition = 'opacity 0.8s ease';
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+  }, 6200);
+
+  // 6. Révèle le site
   setTimeout(() => {
     loader.style.display = 'none';
     document.querySelectorAll('.hero .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 150);
     });
-  }, 4700);
+  }, 7000);
 });
 
 // ===== CUSTOM CURSOR =====
